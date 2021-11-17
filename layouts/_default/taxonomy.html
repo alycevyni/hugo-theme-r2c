@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+<section id="content">
+  {{ range (.Paginate .RegularPagesRecursive).Pages }}
+  <article class="posts">
+    <header class="post-header">
+      <img class="post-cover" src="{{ .Params.cover }}" alt="{{ .Title }}">
+      {{ range .Params.categories }}
+      <a class="post-category" href="/categories/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </header>
+    <main class="post-main">
+      <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+      <div class="post-content">
+        {{ .Description }}
+      </div>
+    </main>
+    <footer class="post-footer">
+      <ul class="post-meta">
+        <li class="post-date">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M18,21H6c-1.657,0-3-1.343-3-3V7h18v11C21,19.657,19.657,21,18,21z" opacity=".35" fill="#5B5B5B" />
+            <path d="M18,3H6C4.343,3,3,4.343,3,6v1h18V6C21,4.343,19.657,3,18,3z" fill="#5B5B5B" />
+            <circle cx="14" cy="18" r="1" fill="#5B5B5B" />
+            <circle cx="10" cy="18" r="1" fill="#5B5B5B" />
+            <circle cx="6" cy="18" r="1" fill="#5B5B5B" />
+            <circle cx="6" cy="14" r="1" fill="#5B5B5B" />
+            <circle cx="10" cy="14" r="1" fill="#5B5B5B" />
+            <circle cx="14" cy="14" r="1" fill="#5B5B5B" />
+            <circle cx="18" cy="14" r="1" fill="#5B5B5B" />
+            <circle cx="18" cy="10" r="1" fill="#5B5B5B" />
+            <circle cx="14" cy="10" r="1" fill="#5B5B5B" />
+            <circle cx="10" cy="10" r="1" fill="#5B5B5B" />
+          </svg>
+          {{ .Date.Format "2006年01月02日" }}
+        </li>
+        <li>
+          <a href="{{ .Permalink }}" class="read-more" rel="noopener nofollow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" opacity=".35" fill="#5B5B5B" />
+              <circle cx="12" cy="12" r="2" fill="#5B5B5B" />
+              <circle cx="6" cy="12" r="2" fill="#5B5B5B" />
+              <circle cx="18" cy="12" r="2" fill="#5B5B5B" />
+            </svg>
+            阅读更多
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </article>
+  {{ end }}
+
+  <nav class="navigation">
+    {{ $paginator := .Paginator }}
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="page-prev">上一页</a>
+    {{ end }}
+
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="page-next">下一页</a>
+    {{ end }}
+  </nav>
+</section>
+
+{{ end }}

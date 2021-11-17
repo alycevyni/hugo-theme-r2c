@@ -1,0 +1,57 @@
+baseURL = "/"
+languageCode = "zh-CN"
+title = " "
+theme = "r2c"
+paginate = 20
+
+[params]
+sitename = " "
+description = " "
+keywords = " "
+twitter = "//twitter.com/"
+weibo = "//weibo.com/u/"
+github = "//github.com/"
+cover = "cover_default.jpg"
+icp = " "
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+archive = "archives"
+
+[menu]
+  [[menu.main]]
+  identifier = "about"
+  name       = "About"
+  url        = "/about"
+  weight     = 1
+
+  [[menu.main]]
+  identifier = "archives"
+  name       = "Archives"
+  url        = "/archives"
+  weight     = 2
+
+  [[menu.main]]
+  identifier = "rss"
+  name       = "RSS"
+  url        = "/index.xml"
+  weight     = 3
+
+
+[permalinks]
+  "/" = "/archives/:year/:month/:slug"
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    style = "monokailight"
+    tabWidth = 2

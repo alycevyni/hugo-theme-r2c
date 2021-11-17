@@ -1,0 +1,81 @@
+{{ define "main" }}
+
+<section id="content">
+  <article class="posts">
+    <header class="post-header">
+      <img class="post-cover" src="{{ .Params.cover }}" alt="{{ .Title }}">
+      {{ range .Params.categories }}
+      <a class="post-category" href="/categories/{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </header>
+    <main class="post-main">
+      <h1 class="post-title">{{ .Title }}</h1>
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+    </main>
+    <footer class="post-footer">
+      <ul class="post-meta">
+        <li class="post-date">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M18,21H6c-1.657,0-3-1.343-3-3V7h18v11C21,19.657,19.657,21,18,21z" opacity=".35" fill="#5B5B5B" />
+            <path d="M18,3H6C4.343,3,3,4.343,3,6v1h18V6C21,4.343,19.657,3,18,3z" fill="#5B5B5B" />
+            <circle cx="14" cy="18" r="1" fill="#5B5B5B" />
+            <circle cx="10" cy="18" r="1" fill="#5B5B5B" />
+            <circle cx="6" cy="18" r="1" fill="#5B5B5B" />
+            <circle cx="6" cy="14" r="1" fill="#5B5B5B" />
+            <circle cx="10" cy="14" r="1" fill="#5B5B5B" />
+            <circle cx="14" cy="14" r="1" fill="#5B5B5B" />
+            <circle cx="18" cy="14" r="1" fill="#5B5B5B" />
+            <circle cx="18" cy="10" r="1" fill="#5B5B5B" />
+            <circle cx="14" cy="10" r="1" fill="#5B5B5B" />
+            <circle cx="10" cy="10" r="1" fill="#5B5B5B" />
+          </svg>
+          {{ .Date.Format "2006年01月02日" }}
+        </li>
+      </ul>
+    </footer>
+  </article>
+
+  {{ if or .NextInSection .PrevInSection }}
+  <nav class="pagination">
+    <ul>
+      <li>
+        {{ if .NextInSection }}
+        <a href="{{ .NextInSection.Permalink }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M6,3h12c1.657,0,3,1.343,3,3v12c0,1.657-1.343,3-3,3H6c-1.657,0-3-1.343-3-3V6C3,4.343,4.343,3,6,3z"
+              opacity=".35" fill="#5B5B5B" />
+            <path
+              d="M13.25,17c-0.384,0-0.768-0.146-1.061-0.439l-3.5-3.5c-0.586-0.585-0.586-1.536,0-2.121l3.5-3.5c0.586-0.586,1.535-0.586,2.121,0c0.586,0.585,0.586,1.536,0,2.121L11.871,12l2.439,2.439c0.586,0.585,0.586,1.536,0,2.121C14.018,16.854,13.634,17,13.25,17z"
+              fill="#5B5B5B" />
+          </svg>
+          {{ .NextInSection.Title }}
+        </a>
+        {{ end }}
+      </li>
+      <li>
+        {{ if .PrevInSection }}
+        <a href="{{ .PrevInSection.Permalink }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M18,21H6c-1.657,0-3-1.343-3-3V6c0-1.657,1.343-3,3-3h12c1.657,0,3,1.343,3,3v12C21,19.657,19.657,21,18,21z"
+              opacity=".35" fill="#5B5B5B" />
+            <path
+              d="M10.75,7c0.384,0,0.768,0.146,1.061,0.439l3.5,3.5c0.586,0.585,0.586,1.536,0,2.121l-3.5,3.5c-0.586,0.586-1.535,0.586-2.121,0c-0.586-0.585-0.586-1.536,0-2.121L12.129,12L9.689,9.561c-0.586-0.585-0.586-1.536,0-2.121C9.982,7.146,10.366,7,10.75,7z"
+              fill="#5B5B5B" />
+          </svg>
+          {{ .PrevInSection.Title }}
+        </a>
+        {{ end }}
+      </li>
+    </ul>
+  </nav>
+  {{ end }}
+
+  <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="383dc9cc-866d-4891-adef-37c3dd562647"
+    data-page-id="{{ .File.UniqueID }}" data-page-url="{{ .RelPermalink | absURL }}" data-page-title="{{ .Title }}">
+  </div>
+</section>
+
+{{ end }}

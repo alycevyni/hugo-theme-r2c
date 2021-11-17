@@ -1,0 +1,11 @@
+name = "r2c"
+license = "GPL-v3"
+licenselink = "https://raw.githubusercontent.com/alycevyni/"
+description = "a simple hugo theme"
+homepage = "https://rche.dev"
+tags = ["simple", "chinese", "minimalist"]
+features = ["minimalist", "fast", "simple"]
+
+[author]
+  name = "Rche"
+  homepage = "https://github.com/alycevyni"

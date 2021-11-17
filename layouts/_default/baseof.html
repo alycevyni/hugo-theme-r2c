@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}" data-theme-mode="light">
+
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "header" . }}
+
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer" . }}
+</body>
+
+</html>

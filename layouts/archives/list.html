@@ -1,0 +1,28 @@
+{{ define "main" }}
+
+<section id="content">
+  <article class="posts">
+    <header class="post-header">
+      <img class="post-cover" src="{{ .Params.cover }}" alt="{{ .Title }}">
+    </header>
+    <main class="post-main">
+      <h1 class="post-title">{{ .Title }}</h1>
+      <div class="post-content">
+        {{ .Content }}
+        {{ range (.Site.RegularPages.GroupByDate "2006") }}
+        <h3>{{ .Key }}</h3>
+        <ul>
+          {{ range .Pages }}
+          <li>
+            {{ .PublishDate.Format "2006年01月02日" }}
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </div>
+    </main>
+  </article>
+</section>
+
+{{ end }}

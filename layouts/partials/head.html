@@ -1,0 +1,26 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ .Description | default .Site.Params.description }}" />
+  <meta name="keywords" content="{{ delimit .Keywords " " | default .Site.Params.keywords }}" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@mopimopiw" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  <meta property="og:url" content="https:{{ ( .Permalink | default .Site.BaseURL ) | absURL }}" />
+  <meta property="og:title" content="{{ .Title | default .Site.Title }}" />
+  <meta property="og:description" content="{{ .Description | default .Site.Params.description }}" />
+  <meta property="og:image" content="https:{{ (.Params.cover | default .Site.Params.cover) | absURL }}" />
+  <meta name="theme-color" content="#4445ab" />
+
+  <title>{{ block "title" . }}{{ if .IsHome }} {{ .Site.Title }} {{ else }} {{ .Title }} - {{ .Site.Title }} {{ end }}{{
+    end }}</title>
+
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon.png">
+  <link rel="icon" href="/favicon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css" />
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/parvus.css" />
+  <link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml" title="{{ .Site.Title }}">
+</head>

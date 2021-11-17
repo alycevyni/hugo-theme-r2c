@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<section id="content">
+  <article class="posts">
+    <header class="post-header">
+      <div class="about-cover">
+        <img class="avatar" src="{{ .Params.avatar }}" alt="avatar">
+        <div class="desc">
+          <h3>{{ .Params.author }}</h3>
+          <p>现居重庆的一名前端开发者，极简主义者。<br />兴趣是拍些小照片 <img class="icons"
+              src="https://mopimopi-1gvt0hk14ef6057e-1304184665.ap-shanghai.app.tcloudbase.com/img/1f4f8.svg" alt="相机">
+            和玩些小游戏 <img class="icons"
+              src="https://mopimopi-1gvt0hk14ef6057e-1304184665.ap-shanghai.app.tcloudbase.com/img/1f3ae.svg" alt="手柄">。
+          </p>
+        </div>
+      </div>
+    </header>
+    <main class="post-main">
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+    </main>
+  </article>
+</section>
+
+{{ end }}
