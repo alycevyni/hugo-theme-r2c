@@ -19,7 +19,9 @@
 
 `config.toml` 文件里有一些简单配置选项：
 
-| sitename ｜ 站点名 |
+| 字段 | 描述 |
+| :---- | :---- |
+| sitename | 站点名 |
 | description | 站点描述 |
 | keywords | 站点关键字 |
 | twitter | 推特完整地址 |
@@ -28,7 +30,7 @@
 | cover | 默认站点的封面图 |
 | icp | 备案号 |
 
-shortcodes 的一些使用方法：
+### shortcodes 的一些使用方法：
 
 `figure` 是横向并列的两张图片展示
 
